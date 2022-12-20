@@ -16,19 +16,33 @@ import java.util.Arrays;
 
 public class Course {
 	private String courseName;
+	private static int CId = 0;
+	private int CourseId;
 	private String[] instructors;
 	
 	public Course() {
 		this.courseName = "Behavioural Training";
+		this.CourseId = Course.CId;
+		Course.CId ++;
 	}
 	
 	//  constructor overloading
 	public Course(String courseName) {
 		this.courseName = courseName;
+		this.CourseId = Course.CId;
+		Course.CId ++;
+	}
+
+	public String getCourse(){
+		return this.courseName;
 	}
 
 	public String[] getInstructors() {
 		return instructors;
+	}
+
+	public int getCourseId(){
+		return this.CourseId;
 	}
 	
 	//	function overloading
@@ -36,17 +50,16 @@ public class Course {
 		this.instructors = instructors;
 	}
 	
-	
 	public void setInstructors(String instructor) {
 		this.instructors = new String[]{instructor};
 	}
 
 	public String getDurantion() {
-		return null;
+		return "";
 	}
 	
 	@Override
 	public String toString() {
-		return this.courseName; 
+		return "#ID: "+this.CourseId+", "+this.courseName; 
 	}
 }

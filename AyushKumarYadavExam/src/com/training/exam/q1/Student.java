@@ -19,13 +19,15 @@ public class Student implements Comparable<Student>{
 
 	private int rollNumber;
 	private String name;
+	private Course course;
 	private LocalDate birthDate;
 	
 	
-	public Student(int rollNumber, String name, LocalDate birthDate) {
+	public Student(int rollNumber, String name, LocalDate birthDate, Course course) {
 		this.rollNumber = rollNumber;
 		this.name = name;
 		this.birthDate = birthDate;
+		this.course = course;
 	}	
 	
 	@Override
@@ -41,7 +43,7 @@ public class Student implements Comparable<Student>{
 	
 	@Override
 	public int hashCode() {
-		return this.rollNumber;
+		return this.course.getCourseId();
 	}
 	
 	@Override
@@ -50,13 +52,6 @@ public class Student implements Comparable<Student>{
 	}
 	
 	public int compareTo(Student s) {
-		long hours = ChronoUnit.DAYS.between(this.birthDate, s.birthDate);
-		if (hours < 0) {
-			return 1;
-		}
-		else if (hours > 0) {
-			return -1;
-		}
-		else return 0;
+		return (int) ChronoUnit.DAYS.between(this.birthDate, s.birthDate);
 	}
 }

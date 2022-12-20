@@ -15,6 +15,8 @@ import com.training.exam.q1.Course;
 
 
 public class SpecialisationCourse extends Course{
+ 
+	private int trialDays;
 
 	public SpecialisationCourse(String courseName) {
 		super(courseName);
@@ -25,9 +27,18 @@ public class SpecialisationCourse extends Course{
 	public SpecialisationCourse() {
 		super();
 	}
+
+	// overriding
 	
-	//	function overriding
 	public String getDurantion() {
 		return 3 + " Months.";
+	}
+
+	public int getTrialDays() {
+		return trialDays;
+	}
+
+	public void setTrialDays(int trialDays) {
+		this.trialDays = trialDays;
 	}
 }

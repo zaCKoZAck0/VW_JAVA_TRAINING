@@ -23,21 +23,23 @@ public class Main {
 	public static void main(String[] args) {
 		Map<Student, Course> student_course = new HashMap<>();
 		
-		Student s1 = new Student(1,"Ayush", LocalDate.of(2001, 11, 30));
-		Student s2 = new Student(2,"Amit", LocalDate.of(2000, 12, 30));
-		Student s3 = new Student(3,"Arpit", LocalDate.of(2000, 7, 15));
-		
 		Course c1 = new Course("Java Adv.");
 		c1.setInstructors("Ayush");
 		Course c2 = new Course("Python");
 		c2.setInstructors("Ayush");
+
+		Student s1 = new Student(1,"Ayush", LocalDate.of(2001, 11, 30),c2);
+		Student s2 = new Student(2,"Amit", LocalDate.of(2000, 12, 30),c2);
+		Student s3 = new Student(3,"Arpit", LocalDate.of(2000, 7, 15),c1);
+		
+
 		
 	student_course.put(s1, c2);
 	student_course.put(s2, c2);
 	student_course.put(s3, c1);
 	
 	// prints Map collection
-	System.out.println(student_course);
+	System.out.println("MAP Collection: "+student_course);
 	
 	TreeSet<Student> stdTree = new TreeSet<Student>();
 	stdTree.add(s1);
@@ -45,7 +47,7 @@ public class Main {
 	stdTree.add(s3);
 	
 	//prints TreeSet collection
-	System.out.println(stdTree);
+	System.out.println("TreeSet Collection Sorted by Birthdate (asc.): "+stdTree);
 	
 	}
 }

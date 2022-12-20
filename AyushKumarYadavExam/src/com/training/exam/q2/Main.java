@@ -26,19 +26,32 @@ public class Main {
 		checkInst(c1);
 		c1 = new CrashCourse("Python Training");
 		checkInst(c1);
+
+		System.out.println("");
+		System.out.println("Only Print Duration, if instanceof CrashCourse or instanceof SpecialisationCourse: ");
+		System.out.println("Rest Displayed in code");
 		
 	}
+
+	
 	//	instanceof operator
 	public static void checkInst(Course c) {
 		
+		System.out.println("");
+
 //		c.setInstructors("Ayush");
 		c.setInstructors(new String[]{"Ayush","Amit","Abhishek"});
 		
+		
+
 		System.out.println(c);
 		
-		if (c instanceof CrashCourse || c instanceof SpecialisationCourse) {
-			System.out.println("Durantion: "+c.getDurantion());
+		if (c instanceof SpecialisationCourse) {
+			
+			((SpecialisationCourse) c).setTrialDays(20);
+			System.out.println("Specialisation Course: "+c+" has "+((SpecialisationCourse) c).getTrialDays()+" trial.");
 		}
+		System.out.println("");
 	}
 	
 }
