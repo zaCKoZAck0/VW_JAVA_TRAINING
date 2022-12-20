@@ -1,0 +1,34 @@
+<div>
+    <form class="container col-4" [formGroup]="bookForm" (ngSubmit)="submitForm()" novalidate>
+        <h1 class="display-4 text-center">Create Book</h1>
+        <div class="form-group">
+            <label>Book Name</label>
+            <textarea class="form-control" formControlName="name" rows="3" maxlength="50"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Book Author</label> 
+            <input type="text" formControlName="author" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Book Image Url</label>
+        <img class="img-fluid my-2" src={{this.bookForm.value.url}}>
+            <input type="text" formControlName="url" class="form-control">
+        </div>
+
+        <button [disabled]="this.bookForm.pristine || !(this.bookForm.value.name && this.bookForm.value.author)"
+         class="container-fluid btn btn-success my-2 " type="submit">Submit</button>
+
+        <div class="text-bg-danger lead p-2" *ngIf="bookForm.controls['name'].errors?.['required'] && !this.bookForm.pristine">
+            *Book Name is required.
+        </div>
+        <div class="text-bg-danger lead p-2" *ngIf="bookForm.controls['name'].errors?.['minlength']">
+            *Book Name must be at least 4 characters long.
+        </div>
+        <div class="text-bg-danger lead p-2" *ngIf="bookForm.controls['author'].errors?.['required'] && !this.bookForm.pristine">
+            *Book Author is required.
+        </div>
+        <div class="text-bg-danger lead p-2" *ngIf="bookForm.controls['author'].errors?.['minlength']">
+            *Book Author must be at least 4 characters long.
+        </div>
+    </form>
+</div>
